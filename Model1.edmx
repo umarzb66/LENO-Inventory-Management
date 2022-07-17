@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="lenoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bankdetailsTable">
+          <Key>
+            <PropertyRef Name="empno" />
+          </Key>
+          <Property Name="empno" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phoneno" Type="bigint" Nullable="false" />
+          <Property Name="bankacno" Type="bigint" Nullable="false" />
+          <Property Name="bankname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="branchname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ifsccode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="micrcode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="billTable">
+          <Key>
+            <PropertyRef Name="billno" />
+          </Key>
+          <Property Name="billno" Type="bigint" Nullable="false" />
+          <Property Name="invoiceno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="deliveryno" Type="bigint" Nullable="false" />
+          <Property Name="notedate" Type="date" Nullable="false" />
+          <Property Name="customerid" Type="bigint" Nullable="false" />
+          <Property Name="company" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar(max)" Nullable="false" />
+          <Property Name="gstno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="destination" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vechicleno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="goodscondition" Type="varchar(max)" Nullable="false" />
+          <Property Name="goodsdescription" Type="varchar(max)" Nullable="false" />
+          <Property Name="hsn" Type="bigint" Nullable="false" />
+          <Property Name="quantity" Type="bigint" Nullable="false" />
+          <Property Name="rateper" Type="bigint" Nullable="false" />
+          <Property Name="amount" Type="bigint" Nullable="false" />
+          <Property Name="sgst" Type="bigint" Nullable="false" />
+          <Property Name="cgst" Type="bigint" Nullable="false" />
+          <Property Name="totalamount" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customerTable">
+          <Key>
+            <PropertyRef Name="customerid" />
+          </Key>
+          <Property Name="customerid" Type="bigint" Nullable="false" />
+          <Property Name="typeid" Type="bigint" Nullable="false" />
+          <Property Name="companyname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="emailid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gstno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar(max)" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="statecode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zipcode" Type="bigint" Nullable="false" />
+          <Property Name="igst" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="loginTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="userid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="profileTable">
+          <Key>
+            <PropertyRef Name="empno" />
+          </Key>
+          <Property Name="empno" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="age" Type="bigint" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="phoneno" Type="bigint" Nullable="false" />
+          <Property Name="vehicleno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar(max)" Nullable="false" />
+          <Property Name="aadharno" Type="bigint" Nullable="false" />
+          <Property Name="panno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="emailid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bankacno" Type="bigint" Nullable="false" />
+          <Property Name="balance" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="purchaseTable">
+          <Key>
+            <PropertyRef Name="invoiceno" />
+          </Key>
+          <Property Name="invoiceno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vendorid" Type="bigint" Nullable="false" />
+          <Property Name="gstid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="purchasedate" Type="date" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hsn" Type="bigint" Nullable="false" />
+          <Property Name="quantity" Type="bigint" Nullable="false" />
+          <Property Name="perprice" Type="bigint" Nullable="false" />
+          <Property Name="totalprice" Type="bigint" Nullable="false" />
+          <Property Name="disc" Type="bigint" Nullable="false" />
+          <Property Name="totalamount" Type="bigint" Nullable="false" />
+          <Property Name="currentbalance" Type="bigint" Nullable="false" />
+          <Property Name="balance" Type="bigint" Nullable="false" />
+          <Property Name="bankacno" Type="bigint" Nullable="false" />
+          <Property Name="checkno" Type="bigint" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rawmaterialsTable">
+          <Key>
+            <PropertyRef Name="idno" />
+          </Key>
+          <Property Name="idno" Type="bigint" Nullable="false" />
+          <Property Name="code" Type="bigint" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="size" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="inch" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stockoutTable">
+          <Key>
+            <PropertyRef Name="idno" />
+          </Key>
+          <Property Name="idno" Type="bigint" Nullable="false" />
+          <Property Name="modelno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="billno" Type="bigint" Nullable="false" />
+          <Property Name="invoiceno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="company" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sold" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stockTable">
+          <Key>
+            <PropertyRef Name="modelno" />
+          </Key>
+          <Property Name="modelno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="capacity" Type="bigint" Nullable="false" />
+          <Property Name="weight" Type="bigint" Nullable="false" />
+          <Property Name="dimension" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tax" Type="bigint" Nullable="false" />
+          <Property Name="price" Type="bigint" Nullable="false" />
+          <Property Name="quantity" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="travellerTable">
+          <Key>
+            <PropertyRef Name="travelid" />
+          </Key>
+          <Property Name="travelid" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="empno" Type="bigint" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vehicleno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phoneno" Type="bigint" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="company" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="start" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="stop" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="kilometer" Type="bigint" Nullable="false" />
+          <Property Name="cost" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vendorTable">
+          <Key>
+            <PropertyRef Name="vendorid" />
+          </Key>
+          <Property Name="vendorid" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phoneno" Type="bigint" Nullable="false" />
+          <Property Name="gstno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zipcode" Type="bigint" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="workerTable">
+          <Key>
+            <PropertyRef Name="paidno" />
+          </Key>
+          <Property Name="paidno" Type="bigint" Nullable="false" />
+          <Property Name="empno" Type="bigint" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bankacno" Type="bigint" Nullable="false" />
+          <Property Name="paiddate" Type="date" Nullable="false" />
+          <Property Name="shift" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hours" Type="bigint" Nullable="false" />
+          <Property Name="mode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="paid" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="lenoModelStoreContainer">
+          <EntitySet Name="bankdetailsTable" EntityType="Self.bankdetailsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="billTable" EntityType="Self.billTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customerTable" EntityType="Self.customerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loginTable" EntityType="Self.loginTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="profileTable" EntityType="Self.profileTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purchaseTable" EntityType="Self.purchaseTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rawmaterialsTable" EntityType="Self.rawmaterialsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stockoutTable" EntityType="Self.stockoutTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stockTable" EntityType="Self.stockTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="travellerTable" EntityType="Self.travellerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vendorTable" EntityType="Self.vendorTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="workerTable" EntityType="Self.workerTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="lenoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bankdetailsTable">
+          <Key>
+            <PropertyRef Name="empno" />
+          </Key>
+          <Property Name="empno" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneno" Type="Int64" Nullable="false" />
+          <Property Name="bankacno" Type="Int64" Nullable="false" />
+          <Property Name="bankname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branchname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ifsccode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="micrcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="billTable">
+          <Key>
+            <PropertyRef Name="billno" />
+          </Key>
+          <Property Name="billno" Type="Int64" Nullable="false" />
+          <Property Name="invoiceno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="deliveryno" Type="Int64" Nullable="false" />
+          <Property Name="notedate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="customerid" Type="Int64" Nullable="false" />
+          <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gstno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vechicleno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="goodscondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="goodsdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hsn" Type="Int64" Nullable="false" />
+          <Property Name="quantity" Type="Int64" Nullable="false" />
+          <Property Name="rateper" Type="Int64" Nullable="false" />
+          <Property Name="amount" Type="Int64" Nullable="false" />
+          <Property Name="sgst" Type="Int64" Nullable="false" />
+          <Property Name="cgst" Type="Int64" Nullable="false" />
+          <Property Name="totalamount" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customerTable">
+          <Key>
+            <PropertyRef Name="customerid" />
+          </Key>
+          <Property Name="customerid" Type="Int64" Nullable="false" />
+          <Property Name="typeid" Type="Int64" Nullable="false" />
+          <Property Name="companyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gstno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="statecode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zipcode" Type="Int64" Nullable="false" />
+          <Property Name="igst" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="loginTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="userid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="profileTable">
+          <Key>
+            <PropertyRef Name="empno" />
+          </Key>
+          <Property Name="empno" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age" Type="Int64" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneno" Type="Int64" Nullable="false" />
+          <Property Name="vehicleno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aadharno" Type="Int64" Nullable="false" />
+          <Property Name="panno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bankacno" Type="Int64" Nullable="false" />
+          <Property Name="balance" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="purchaseTable">
+          <Key>
+            <PropertyRef Name="invoiceno" />
+          </Key>
+          <Property Name="invoiceno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vendorid" Type="Int64" Nullable="false" />
+          <Property Name="gstid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="purchasedate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hsn" Type="Int64" Nullable="false" />
+          <Property Name="quantity" Type="Int64" Nullable="false" />
+          <Property Name="perprice" Type="Int64" Nullable="false" />
+          <Property Name="totalprice" Type="Int64" Nullable="false" />
+          <Property Name="disc" Type="Int64" Nullable="false" />
+          <Property Name="totalamount" Type="Int64" Nullable="false" />
+          <Property Name="currentbalance" Type="Int64" Nullable="false" />
+          <Property Name="balance" Type="Int64" Nullable="false" />
+          <Property Name="bankacno" Type="Int64" Nullable="false" />
+          <Property Name="checkno" Type="Int64" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="rawmaterialsTable">
+          <Key>
+            <PropertyRef Name="idno" />
+          </Key>
+          <Property Name="idno" Type="Int64" Nullable="false" />
+          <Property Name="code" Type="Int64" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="inch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stockoutTable">
+          <Key>
+            <PropertyRef Name="idno" />
+          </Key>
+          <Property Name="idno" Type="Int64" Nullable="false" />
+          <Property Name="modelno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="billno" Type="Int64" Nullable="false" />
+          <Property Name="invoiceno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sold" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stockTable">
+          <Key>
+            <PropertyRef Name="modelno" />
+          </Key>
+          <Property Name="modelno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="capacity" Type="Int64" Nullable="false" />
+          <Property Name="weight" Type="Int64" Nullable="false" />
+          <Property Name="dimension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tax" Type="Int64" Nullable="false" />
+          <Property Name="price" Type="Int64" Nullable="false" />
+          <Property Name="quantity" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="travellerTable">
+          <Key>
+            <PropertyRef Name="travelid" />
+          </Key>
+          <Property Name="travelid" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="empno" Type="Int64" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vehicleno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneno" Type="Int64" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="start" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kilometer" Type="Int64" Nullable="false" />
+          <Property Name="cost" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vendorTable">
+          <Key>
+            <PropertyRef Name="vendorid" />
+          </Key>
+          <Property Name="vendorid" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneno" Type="Int64" Nullable="false" />
+          <Property Name="gstno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zipcode" Type="Int64" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="workerTable">
+          <Key>
+            <PropertyRef Name="paidno" />
+          </Key>
+          <Property Name="paidno" Type="Int64" Nullable="false" />
+          <Property Name="empno" Type="Int64" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bankacno" Type="Int64" Nullable="false" />
+          <Property Name="paiddate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="shift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hours" Type="Int64" Nullable="false" />
+          <Property Name="mode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="paid" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="lenoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bankdetailsTables" EntityType="Self.bankdetailsTable" />
+          <EntitySet Name="billTables" EntityType="Self.billTable" />
+          <EntitySet Name="customerTables" EntityType="Self.customerTable" />
+          <EntitySet Name="loginTables" EntityType="Self.loginTable" />
+          <EntitySet Name="profileTables" EntityType="Self.profileTable" />
+          <EntitySet Name="purchaseTables" EntityType="Self.purchaseTable" />
+          <EntitySet Name="rawmaterialsTables" EntityType="Self.rawmaterialsTable" />
+          <EntitySet Name="stockoutTables" EntityType="Self.stockoutTable" />
+          <EntitySet Name="stockTables" EntityType="Self.stockTable" />
+          <EntitySet Name="travellerTables" EntityType="Self.travellerTable" />
+          <EntitySet Name="vendorTables" EntityType="Self.vendorTable" />
+          <EntitySet Name="workerTables" EntityType="Self.workerTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="lenoModelStoreContainer" CdmEntityContainer="lenoEntities">
+          <EntitySetMapping Name="bankdetailsTables">
+            <EntityTypeMapping TypeName="lenoModel.bankdetailsTable">
+              <MappingFragment StoreEntitySet="bankdetailsTable">
+                <ScalarProperty Name="empno" ColumnName="empno" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="bankacno" ColumnName="bankacno" />
+                <ScalarProperty Name="bankname" ColumnName="bankname" />
+                <ScalarProperty Name="branchname" ColumnName="branchname" />
+                <ScalarProperty Name="ifsccode" ColumnName="ifsccode" />
+                <ScalarProperty Name="micrcode" ColumnName="micrcode" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="billTables">
+            <EntityTypeMapping TypeName="lenoModel.billTable">
+              <MappingFragment StoreEntitySet="billTable">
+                <ScalarProperty Name="billno" ColumnName="billno" />
+                <ScalarProperty Name="invoiceno" ColumnName="invoiceno" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="deliveryno" ColumnName="deliveryno" />
+                <ScalarProperty Name="notedate" ColumnName="notedate" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gstno" ColumnName="gstno" />
+                <ScalarProperty Name="destination" ColumnName="destination" />
+                <ScalarProperty Name="vechicleno" ColumnName="vechicleno" />
+                <ScalarProperty Name="goodscondition" ColumnName="goodscondition" />
+                <ScalarProperty Name="goodsdescription" ColumnName="goodsdescription" />
+                <ScalarProperty Name="hsn" ColumnName="hsn" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="rateper" ColumnName="rateper" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="sgst" ColumnName="sgst" />
+                <ScalarProperty Name="cgst" ColumnName="cgst" />
+                <ScalarProperty Name="totalamount" ColumnName="totalamount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customerTables">
+            <EntityTypeMapping TypeName="lenoModel.customerTable">
+              <MappingFragment StoreEntitySet="customerTable">
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="companyname" ColumnName="companyname" />
+                <ScalarProperty Name="emailid" ColumnName="emailid" />
+                <ScalarProperty Name="gstno" ColumnName="gstno" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="statecode" ColumnName="statecode" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+                <ScalarProperty Name="igst" ColumnName="igst" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loginTables">
+            <EntityTypeMapping TypeName="lenoModel.loginTable">
+              <MappingFragment StoreEntitySet="loginTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profileTables">
+            <EntityTypeMapping TypeName="lenoModel.profileTable">
+              <MappingFragment StoreEntitySet="profileTable">
+                <ScalarProperty Name="empno" ColumnName="empno" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="vehicleno" ColumnName="vehicleno" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="aadharno" ColumnName="aadharno" />
+                <ScalarProperty Name="panno" ColumnName="panno" />
+                <ScalarProperty Name="emailid" ColumnName="emailid" />
+                <ScalarProperty Name="bankacno" ColumnName="bankacno" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchaseTables">
+            <EntityTypeMapping TypeName="lenoModel.purchaseTable">
+              <MappingFragment StoreEntitySet="purchaseTable">
+                <ScalarProperty Name="invoiceno" ColumnName="invoiceno" />
+                <ScalarProperty Name="vendorid" ColumnName="vendorid" />
+                <ScalarProperty Name="gstid" ColumnName="gstid" />
+                <ScalarProperty Name="purchasedate" ColumnName="purchasedate" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="hsn" ColumnName="hsn" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="perprice" ColumnName="perprice" />
+                <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+                <ScalarProperty Name="disc" ColumnName="disc" />
+                <ScalarProperty Name="totalamount" ColumnName="totalamount" />
+                <ScalarProperty Name="currentbalance" ColumnName="currentbalance" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="bankacno" ColumnName="bankacno" />
+                <ScalarProperty Name="checkno" ColumnName="checkno" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rawmaterialsTables">
+            <EntityTypeMapping TypeName="lenoModel.rawmaterialsTable">
+              <MappingFragment StoreEntitySet="rawmaterialsTable">
+                <ScalarProperty Name="idno" ColumnName="idno" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="inch" ColumnName="inch" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stockoutTables">
+            <EntityTypeMapping TypeName="lenoModel.stockoutTable">
+              <MappingFragment StoreEntitySet="stockoutTable">
+                <ScalarProperty Name="idno" ColumnName="idno" />
+                <ScalarProperty Name="modelno" ColumnName="modelno" />
+                <ScalarProperty Name="billno" ColumnName="billno" />
+                <ScalarProperty Name="invoiceno" ColumnName="invoiceno" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="sold" ColumnName="sold" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stockTables">
+            <EntityTypeMapping TypeName="lenoModel.stockTable">
+              <MappingFragment StoreEntitySet="stockTable">
+                <ScalarProperty Name="modelno" ColumnName="modelno" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="dimension" ColumnName="dimension" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="travellerTables">
+            <EntityTypeMapping TypeName="lenoModel.travellerTable">
+              <MappingFragment StoreEntitySet="travellerTable">
+                <ScalarProperty Name="travelid" ColumnName="travelid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="empno" ColumnName="empno" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="vehicleno" ColumnName="vehicleno" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="stop" ColumnName="stop" />
+                <ScalarProperty Name="kilometer" ColumnName="kilometer" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vendorTables">
+            <EntityTypeMapping TypeName="lenoModel.vendorTable">
+              <MappingFragment StoreEntitySet="vendorTable">
+                <ScalarProperty Name="vendorid" ColumnName="vendorid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="gstno" ColumnName="gstno" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workerTables">
+            <EntityTypeMapping TypeName="lenoModel.workerTable">
+              <MappingFragment StoreEntitySet="workerTable">
+                <ScalarProperty Name="paidno" ColumnName="paidno" />
+                <ScalarProperty Name="empno" ColumnName="empno" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="bankacno" ColumnName="bankacno" />
+                <ScalarProperty Name="paiddate" ColumnName="paiddate" />
+                <ScalarProperty Name="shift" ColumnName="shift" />
+                <ScalarProperty Name="hours" ColumnName="hours" />
+                <ScalarProperty Name="mode" ColumnName="mode" />
+                <ScalarProperty Name="paid" ColumnName="paid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
